@@ -1,13 +1,13 @@
 // const elm = document.createElement('div');
 // elm.className = 'moveable';
 
-import {x as mouseX, y as mouseY} from './mouse-listener.js';
+import { x as mouseX, y as mouseY } from './mouse-listener.js';
 
-class Moveable{
+class Moveable {
 
     private elm: JQuery;
 
-    constructor(private dy: number = 0, private dx: number = 0){
+    constructor(private dy: number = 0, private dx: number = 0) {
         this.elm = $('<div class="moveable"></div>');
         this.dy = 4 + ((Math.random() * 15) * Math.sin((Math.random() * 361) * Math.PI / 180)); // +-[4 - 15]
         this.dx = 4 + ((Math.random() * 15) * Math.sin((Math.random() * 361) * Math.PI / 180)); // +-[4 - 15]
@@ -26,10 +26,26 @@ class Moveable{
         });
     }
 
-    move(): void{  
+    move(): void {
 
         let top = this.elm.offset()!.top;
-        let left  =  this.elm.offset()!.left;
+        let left = this.elm.offset()!.left;
+
+        if (mouseX !== -1 && mouseY !== -1) {
+
+            let elmX = left + this.elm.width()! / 2;
+            let elmY = top + this.elm.height()! / 2;
+
+            // hypot = Math.sqrt((elmX - mouseX) * (elmX - mouseX) + (elmY - mouseY) * (elmY - mouseY))
+            let hypot = Math.hypot(elmX - mouseX, elmY - mouseY);
+            let radius = $("#circle").width()! / 2;
+
+            if (hypot <=  radius){
+                this.dx = -this.dx;
+                this.dy = -this.dy;
+            }
+
+        }
 
         this.elm.offset({
             top: top + this.dy,
@@ -37,13 +53,13 @@ class Moveable{
         });
 
         top = this.elm.offset()!.top;
-        left  =  this.elm.offset()!.left;
+        left = this.elm.offset()!.left;
 
         if ((top <= 0) || ((top + this.elm.height()!) >= $(window).height()!)) {
             this.dy = -this.dy;
         }
 
-        if ((left +  this.elm.width()! >= $(window).width()!) || (left <= 0)){
+        if ((left + this.elm.width()! >= $(window).width()!) || (left <= 0)) {
             this.dx = -this.dx;
         }
 
@@ -58,7 +74,7 @@ for (let i = 0; i < 50; i++) {
 }
 
 
-// setInterval(()=> moveables.forEach(mo => mo.move()), 50);
+setInterval(() => moveables.forEach(mo => mo.move()), 50);
 
 // setInterval(()=> {
 
