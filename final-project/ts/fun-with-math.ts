@@ -43,31 +43,31 @@ class Moveable {
             let hypot = Math.hypot(x, y);
             let radius = $("#circle").width()! / 2 + 50;
 
-            if (hypot <=  radius){
+            if (hypot <= radius) {
 
-                if (x > 0){
+                if (x > 0) {
                     this.elm.offset({
-                        left: left + (radius -x)
+                        left: left + (radius - x)
                     });
-                    left = left  + (radius  -x);
-                }else{
+                    left = left + (radius - x);
+                } else {
                     this.elm.offset({
                         left: left - (radius - Math.abs(x)) - this.elm.width()!
                     });
                     left = left - (radius - Math.abs(x)) - this.elm.width()!;
                 }
 
-                if (y > 0){
+                if (y > 0) {
                     this.elm.offset({
                         top: top + (radius - y)
                     });
                     top = top + (radius - y);
-                }else{
+                } else {
                     this.elm.offset({
                         top: top - (radius - Math.abs(y)) - this.elm.height()!
                     });
-                    top = top - (radius - Math.abs(y)) - this.elm.height()!;
-                }  
+                    top = top - radius - this.elm.height()!;
+                }
 
                 this.dx = -this.dx;
                 this.dy = -this.dy;
