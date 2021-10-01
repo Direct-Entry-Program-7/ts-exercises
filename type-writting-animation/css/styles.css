@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.cursor{
+    display: inline-block;
+    width: 15px;
+    height: 1.1em;
+    animation-name: blink;
+    animation-duration: 900ms;
+    animation-iteration-count: infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 0;
+    }
+
+    30%{
+        opacity: 1;
+        background-color: red;
+    }
+}

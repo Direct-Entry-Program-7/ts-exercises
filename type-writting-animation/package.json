@@ -1,0 +1,14 @@
+{
+  "name": "type-writting-animation",
+  "version": "1.0.0",
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "rm -rf ./js && tsc"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.6"
+  }
+}
