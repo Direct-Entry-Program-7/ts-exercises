@@ -1,9 +1,12 @@
 
 let tmrId: null| number = null;
 
+export let x = -1;
+export let y = -1;
+
 $(document).on('mousemove', (eventData) => {
-    let x = eventData.pageX
-    let y = eventData.pageY;
+    x = eventData.pageX
+    y = eventData.pageY;
 
     // if (tmrId == null){
     //     $("#circle").show();

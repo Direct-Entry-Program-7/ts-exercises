@@ -1,6 +1,8 @@
 // const elm = document.createElement('div');
 // elm.className = 'moveable';
 
+import {x as mouseX, y as mouseY} from './mouse-listener.js';
+
 class Moveable{
 
     private elm: JQuery;
@@ -24,7 +26,7 @@ class Moveable{
         });
     }
 
-    move(): void{       
+    move(): void{  
 
         let top = this.elm.offset()!.top;
         let left  =  this.elm.offset()!.left;
@@ -56,7 +58,7 @@ for (let i = 0; i < 50; i++) {
 }
 
 
-setInterval(()=> moveables.forEach(mo => mo.move()), 50);
+// setInterval(()=> moveables.forEach(mo => mo.move()), 50);
 
 // setInterval(()=> {
 
