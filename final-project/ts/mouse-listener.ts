@@ -15,12 +15,12 @@ $(document).on('mousemove', (eventData) => {
     // }
 
     !tmrId && $("#circle").show();
-    tmrId && clearTimeout(tmrId);
+    // tmrId && clearTimeout(tmrId);
 
-    tmrId = setTimeout(()=> {
-        $("#circle").hide();
-        tmrId = null;
-    }, 2000);
+    // tmrId = setTimeout(()=> {
+    //     $("#circle").hide();
+    //     tmrId = null;
+    // }, 2000);
 
     $("#circle").offset({
         left: (x - $("#circle").width()! / 2),
